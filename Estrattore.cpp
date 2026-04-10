@@ -26,33 +26,33 @@ int main() {
     int scelta;
     
     do {
-        cout << "\n--- menu ---\n";
-        cout << "1. visualizza tutti gli studenti\n";
-        cout << "2. elimina momentaneamente gli assenti\n";
-        cout << "3. visualizza studenti presenti\n";
-        cout << "4. estrai studenti presenti\n";
-        cout << "0. esci\n";
+        cout << endl << "--- menu ---" << endl;
+        cout << "1. visualizza tutti gli studenti" << endl;
+        cout << "2. elimina momentaneamente gli assenti" << endl;
+        cout << "3. visualizza studenti presenti" << endl;
+        cout << "4. estrai studenti presenti" << endl;
+        cout << "0. esci" << endl;
         cout << "scelta: ";
         cin >> scelta;
         
         switch (scelta) {
             case 1:
-                cout << "\nregistro completo:\n";
+                cout << endl << "registro completo:" << endl;
                 for (int i = 0; i < 27; i++) {
-                    cout << i + 1 << " - " << studenti[i] << "\n";
+                    cout << i + 1 << " - " << studenti[i] << endl;
                 }
                 break;
                 
             case 2:
                 int num_assente;
-                cout << "\ninserisci il numero dello studente assente (0 per terminare): ";
+                cout << endl << "inserisci il numero dello studente assente (0 per terminare): ";
                 cin >> num_assente;
                 while (num_assente != 0) {
                     if (num_assente >= 1 && num_assente <= 27) {
                         presenti[num_assente - 1] = false;
-                        cout << "studente rimosso.\n";
+                        cout << "studente rimosso." << endl;
                     } else {
-                        cout << "numero non valido.\n";
+                        cout << "numero non valido." << endl;
                     }
                     cout << "inserisci un altro assente (0 per terminare): ";
                     cin >> num_assente;
@@ -60,17 +60,17 @@ int main() {
                 break;
                 
             case 3:
-                cout << "\nstudenti presenti:\n";
+                cout << endl << "studenti presenti:" << endl;
                 for (int i = 0; i < 27; i++) {
                     if (presenti[i]) {
-                        cout << i + 1 << " - " << studenti[i] << "\n";
+                        cout << i + 1 << " - " << studenti[i] << endl;
                     }
                 }
                 break;
                 
             case 4:
                 int num_estrarre;
-                cout << "\nquanti studenti vuoi estrarre? (da 1 a 10): ";
+                cout << endl << "quanti studenti vuoi estrarre? (da 1 a 10): ";
                 cin >> num_estrarre;
                 
                 if (num_estrarre < 1) {
@@ -93,14 +93,14 @@ int main() {
                 }
                 
                 if (conta_presenti == 0) {
-                    cout << "errore: nessun studente presente.\n";
+                    cout << "errore: nessun studente presente." << endl;
                 } else {
                     bool estratti[27];
                     for (int i = 0; i < 27; i++) {
                         estratti[i] = false;
                     }
                     
-                    cout << "\nstudenti estratti:\n";
+                    cout << endl << "studenti estratti:" << endl;
                     for (int i = 0; i < num_estrarre; i++) {
                         int r;
                         do {
@@ -108,17 +108,17 @@ int main() {
                         } while (presenti[r] == false || estratti[r] == true);
                         
                         estratti[r] = true;
-                        cout << r + 1 << " - " << studenti[r] << "\n";
+                        cout << r + 1 << " - " << studenti[r] << endl;
                     }
                 }
                 break;
                 
             case 0:
-                cout << "\nuscita dal programma.\n";
+                cout << endl << "uscita dal programma." << endl;
                 break;
                 
             default:
-                cout << "\nscelta non valida, riprova.\n";
+                cout << endl << "scelta non valida, riprova." << endl;
         }
     } while (scelta != 0);
 
